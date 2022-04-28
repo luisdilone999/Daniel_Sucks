@@ -11,7 +11,7 @@ public class BlockSpawner : MonoBehaviour
     public float timeSpawn = 2f;
     public float timeWaves = 2f;
 
-    public int itemWave = 3;
+    public int itemWave = 5;
     public int score = -1;
     public int items = 0;
     public Text itemText;
@@ -24,13 +24,14 @@ public class BlockSpawner : MonoBehaviour
         }
 
         if (Time.time >= timeSpawn) {
-            Spawner();
             timeSpawn = Time.time + timeWaves;
 
             timeWaves -= 0.05f;
-            timeWaves = Mathf.Max(0.5f, timeWaves);
+            timeWaves = Mathf.Max(1f, timeWaves);
 
             score += 1;
+
+            Spawner();
         }
     }
 
@@ -56,13 +57,14 @@ public class BlockSpawner : MonoBehaviour
             }
         }
 
+        float choice = Random.value;
         for(int i = 0; i < spawnPoints.Length; i++) {
             if(randomNumber1 != i && randomNumber2 != i) {
                 Instantiate(blockPrefab, spawnPoints[i].position, Quaternion.identity);
             }
 
             else if(score % itemWave == 0 && score != 0) {
-                if(Random.value<0.5f) {
+                if(choice < 0.5f) {
                     Instantiate(itemPrefab, spawnPoints[randomNumber1].position, Quaternion.identity);
                 }
                 else {
