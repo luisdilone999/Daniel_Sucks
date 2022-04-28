@@ -18,6 +18,6 @@ public class Cursor : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        armGame.ChangeDir();
+        armGame.ChangeDir("Cursor");
     }
 }

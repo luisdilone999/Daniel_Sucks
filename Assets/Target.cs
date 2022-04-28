@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    public ArmGame armGame;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,9 @@ public class Target : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        armGame.ChangeDir("Target");
     }
 }
