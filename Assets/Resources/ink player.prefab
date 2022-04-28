@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6556012003644604116}
   - component: {fileID: -1906927724325199055}
   - component: {fileID: 6110167569701767837}
+  - component: {fileID: 1937627013976729744}
   m_Layer: 0
   m_Name: ink player
   m_TagString: ink
@@ -131,3 +132,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1937627013976729744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7150108777397754929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe96448ddabd4ac09b294b149722375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
