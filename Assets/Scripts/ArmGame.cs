@@ -7,9 +7,6 @@ public class ArmGame : MonoBehaviour
     public Vector3 center;
     public Transform cursor;
     public Transform target;
-    public KeyCode key1 = KeyCode.P;
-    public KeyCode key2 = KeyCode.W;
-    public KeyCode key3 = KeyCode.E;
 
     public float distance = 0;
     public int score = 0;
@@ -26,7 +23,7 @@ public class ArmGame : MonoBehaviour
         target = this.transform.Find("Target");
         cursor_vel = cursor.gameObject.GetComponent<Rigidbody2D>();
         target_vel = target.gameObject.GetComponent<Rigidbody2D>();
-        cursor_vel.velocity = new Vector2(1f,0);
+        cursor_vel.velocity = new Vector2(1.1f,0);
         target_vel.velocity = new Vector2(-1f,0);
     }
 
@@ -34,19 +31,18 @@ public class ArmGame : MonoBehaviour
     void Update()
     {
 
-
         distance =  cursor.position.x - target.position.x;
-        if(Input.GetKey(KeyCode.P)){
+        if(Input.GetKeyDown(KeyCode.P)){
             float speed = cursor_vel.velocity.x;
             if (Mathf.Abs(distance) < 1f){
-                if (Mathf.Abs(speed * 1.1f) <16f){
-                    ChangeSpeed(1.1f);
+                if (Mathf.Abs(speed) < 9f){
+                    ChangeSpeed(0.5f);
                     Debug.Log("HIT");
                 }
                 score += 1; 
             }else{
-                if(Mathf.Abs(speed * 0.6f) > 0.1f){
-                    ChangeSpeed(0.6f); 
+                if(Mathf.Abs(speed) > 1f){
+                    ChangeSpeed(0.1f, true); 
                     score -= 1;
                 }
             }
@@ -54,9 +50,27 @@ public class ArmGame : MonoBehaviour
         }
     }
 
-    public void ChangeSpeed(float dv){
-        float vx = cursor_vel.velocity.x;
-        cursor_vel.velocity = new Vector2(vx * dv ,0);
+    public void ChangeSpeed(float dv, bool set = false){
+        if (set){
+
+            if(dir == 1){
+                cursor_vel.velocity = new Vector2(dv ,0);
+            }
+            else{
+                cursor_vel.velocity = new Vector2(-1*dv ,0);
+            }
+        }
+        else{
+
+            float vx = cursor_vel.velocity.x;
+            if(dir == 1){
+                cursor_vel.velocity = new Vector2(vx + dv ,0);
+            }
+            else{
+                cursor_vel.velocity = new Vector2(vx - dv ,0);
+            }
+        }
+
     }
     public void ChangeDir(string obj){
         if (obj == "Cursor"){
