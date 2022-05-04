@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArmGame : MonoBehaviour
 {
+    public GameObject squid;
     public Vector3 center;
     public Transform cursor;
     public Transform target;
@@ -12,6 +13,7 @@ public class ArmGame : MonoBehaviour
     public int score = 0;
     private Rigidbody2D cursor_vel;
     private Rigidbody2D target_vel;
+    private Rigidbody2D squid_rb;
     private int dir = 1;
     
 
@@ -23,6 +25,7 @@ public class ArmGame : MonoBehaviour
         target = this.transform.Find("Target");
         cursor_vel = cursor.gameObject.GetComponent<Rigidbody2D>();
         target_vel = target.gameObject.GetComponent<Rigidbody2D>();
+        squid_rb = squid.GetComponent<Rigidbody2D>();
         cursor_vel.velocity = new Vector2(1.1f,0);
         target_vel.velocity = new Vector2(-1f,0);
     }
@@ -37,6 +40,7 @@ public class ArmGame : MonoBehaviour
             if (Mathf.Abs(distance) < 1f){
                 if (Mathf.Abs(speed) < 9f){
                     ChangeSpeed(0.5f);
+                    squid_rb.AddForce(squid.transform.up * 10f);
                     Debug.Log("HIT");
                 }
                 score += 1; 
