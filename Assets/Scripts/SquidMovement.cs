@@ -16,7 +16,7 @@ public class SquidMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.up * Time.deltaTime * MovementSpeed;
+        // transform.position += transform.up * Time.deltaTime * MovementSpeed;
     }
 
     void OnTriggerEnter2D(Collider2D col){
