@@ -37,10 +37,10 @@ public class ArmGame : MonoBehaviour
         distance =  cursor.position.x - target.position.x;
         if(Input.GetKeyDown(KeyCode.P)){
             float speed = cursor_vel.velocity.x;
-            if (Mathf.Abs(distance) < 1f){
+            if (Mathf.Abs(distance) < 0.5f){
                 if (Mathf.Abs(speed) < 9f){
                     ChangeSpeed(0.5f);
-                    squid_rb.AddForce(squid.transform.up * 10f);
+                    squid_rb.AddForce(squid.transform.up * 100f);
                     Debug.Log("HIT");
                 }
                 score += 1; 
