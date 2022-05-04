@@ -8,19 +8,34 @@ public class BlockSpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject blockPrefab;
     public GameObject itemPrefab;
+    public GameObject theInk1;
+    public GameObject theInk2;
+    public GameObject theInk3;
     public float timeSpawn = 2f;
     public float timeWaves = 2f;
 
     public int itemWave = 5;
     public int score = -1;
     public int items = 0;
-    public Text itemText;
 
     
     void Update() {
         if(Input.GetKeyDown(KeyCode.Period) && items != 0) { 
-            items -= 1;
-            itemText.text = "Ink sacs: " + items.ToString();
+            if (items != 0) {
+                items -= 1;
+            }
+
+            if (items == 0) {
+                theInk1.SetActive(false);
+            }
+
+            if (items == 1) {
+                theInk2.SetActive(false);
+            }
+
+            if (items == 2) {
+                theInk3.SetActive(false);
+            }
         }
 
         if (Time.time >= timeSpawn) {
