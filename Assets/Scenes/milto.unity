@@ -162,6 +162,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 2029238730}
     m_Modifications:
     - target: {fileID: -1906927724325199055, guid: 60ef43c243d4b48a1993f972a2082169, type: 3}
+      propertyPath: m_Size.x
+      value: 14.274597
+      objectReference: {fileID: 0}
+    - target: {fileID: -1906927724325199055, guid: 60ef43c243d4b48a1993f972a2082169, type: 3}
+      propertyPath: m_Size.y
+      value: 17.952156
+      objectReference: {fileID: 0}
+    - target: {fileID: -1906927724325199055, guid: 60ef43c243d4b48a1993f972a2082169, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.06809616
+      objectReference: {fileID: 0}
+    - target: {fileID: -1906927724325199055, guid: 60ef43c243d4b48a1993f972a2082169, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.2637868
+      objectReference: {fileID: 0}
+    - target: {fileID: -1906927724325199055, guid: 60ef43c243d4b48a1993f972a2082169, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 13.6
       objectReference: {fileID: 0}
@@ -1530,6 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8286ba150beaf458f057edee787818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squid: {fileID: 0}
   center: {x: 0, y: 0, z: 0}
   cursor: {fileID: 0}
   target: {fileID: 0}
@@ -1575,7 +1592,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.599903, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1586,7 +1603,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8.116149, y: 0.000100016594}
   m_EdgeRadius: 0
 --- !u!50 &484938548
 Rigidbody2D:
@@ -2570,6 +2587,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &845766634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 845766635}
+  m_Layer: 6
+  m_Name: FirePoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &845766635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845766634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971331182}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &854771765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2856,6 +2903,7 @@ GameObject:
   - component: {fileID: 971331179}
   - component: {fileID: 971331178}
   - component: {fileID: 971331177}
+  - component: {fileID: 971331183}
   m_Layer: 6
   m_Name: Squid
   m_TagString: Untagged
@@ -2993,9 +3041,28 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2081110366}
+  - {fileID: 845766635}
+  - {fileID: 1302335431}
+  - {fileID: 1741981928}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &971331183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971331176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfcae112f18fb4818a94a88a0eb3caa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint1: {fileID: 845766635}
+  firePoint2: {fileID: 1302335431}
+  firePoint3: {fileID: 1741981928}
+  bulletPrefab: {fileID: 5054192030737780772, guid: 663714db6932c44ada19bf482b7837b2, type: 3}
 --- !u!1 &985603535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,6 +3870,7 @@ MonoBehaviour:
   theInk1: {fileID: 1119566215}
   theInk2: {fileID: 1797605951}
   theInk3: {fileID: 1816462061}
+  theSquid: {fileID: 971331176}
   timeSpawn: 2
   timeWaves: 2
   itemWave: 3
@@ -3923,6 +3991,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1302335430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1302335431}
+  m_Layer: 6
+  m_Name: FirePoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1302335431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302335430}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 3, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971331182}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!1 &1354723283
 GameObject:
   m_ObjectHideFlags: 0
@@ -4513,6 +4611,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7347109807914370676, guid: 680c8c05020fee142857fb11a2f5cbfa, type: 3}
   m_PrefabInstance: {fileID: 854771765}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1741981927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1741981928}
+  m_Layer: 6
+  m_Name: FirePoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1741981928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741981927}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: -3, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 971331182}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!1 &1745263086
 GameObject:
   m_ObjectHideFlags: 0
