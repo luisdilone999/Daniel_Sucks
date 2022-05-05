@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class SquidMovement : MonoBehaviour
 {
-    public float MovementSpeed = 5f;
-    public int points = 0;
+    public Player player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = this.transform.parent.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -20,9 +19,6 @@ public class SquidMovement : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col){
-        points += 1;
-        Debug.Log(points);
-        Destroy(col.gameObject);
-        this.transform.localScale += new Vector3(.3f, .3f, .3f);
+        player.HandleTrigger(col);
     }
 }
