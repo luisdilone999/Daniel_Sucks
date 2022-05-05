@@ -4015,12 +4015,14 @@ MonoBehaviour:
   - {fileID: 43653317}
   blockPrefab: {fileID: 6370690514453476249, guid: 18ab64d0fea7b4d1f87424eb07378e1d, type: 3}
   itemPrefab: {fileID: 7150108777397754929, guid: 60ef43c243d4b48a1993f972a2082169, type: 3}
+  theInk1: {fileID: 0}
+  theInk2: {fileID: 0}
+  theInk3: {fileID: 0}
   timeSpawn: 2
   timeWaves: 2
   itemWave: 3
   score: -1
   items: 0
-  itemText: {fileID: 0}
 --- !u!4 &1443088674
 Transform:
   m_ObjectHideFlags: 0
@@ -5052,6 +5054,9 @@ MonoBehaviour:
   laneLength: 0.7
   theSpawner: {fileID: 1443088672}
   thePlayer: {fileID: 1823751555}
+  theInk1: {fileID: 0}
+  theInk2: {fileID: 0}
+  theInk3: {fileID: 0}
 --- !u!61 &1823751557
 BoxCollider2D:
   m_ObjectHideFlags: 0

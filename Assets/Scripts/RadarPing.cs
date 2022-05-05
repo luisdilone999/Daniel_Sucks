@@ -19,7 +19,7 @@ public class RadarPing : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     private float disappearTimer;
     private float disappearTimerMax;
-    private Color color;
+    public Color color;
 
     private void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();

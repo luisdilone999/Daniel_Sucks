@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SquidMovement : MonoBehaviour
 {
+    public float health = 100;
+    public float maxHealth = 100;
     public float MovementSpeed = 5f;
     public int points = 0;
 
@@ -16,7 +18,7 @@ public class SquidMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // transform.position += transform.up * Time.deltaTime * MovementSpeed;
+        //transform.position += transform.up * Time.deltaTime * MovementSpeed;
     }
 
     void OnTriggerEnter2D(Collider2D col){
