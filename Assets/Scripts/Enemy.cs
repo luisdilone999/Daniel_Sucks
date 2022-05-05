@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public float maxHealth = 100;
     public float detectionDist;
 
-    public int MovementSpeed = 5;
+    public float MovementSpeed = 0.5f;
     public Vector3 dir;
     public float dir_timeout;
     // Start is called before the first frame update

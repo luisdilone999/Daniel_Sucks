@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FoodMovement : MonoBehaviour
 {
-    public int MovementSpeed = 5;
+    public float MovementSpeed = 0.1f;
     public Vector3 dir;
     public float dir_timeout;
     // Start is called before the first frame update

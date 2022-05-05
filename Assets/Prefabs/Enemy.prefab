@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8216703382703453778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -114,7 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squid: {fileID: 8375171553652716410, guid: 39fd6342d63f51541a568cf7e8014d6d, type: 3}
   health: 100
+  maxHealth: 100
   detectionDist: 25
-  MovementSpeed: 3
+  MovementSpeed: 0.5
   dir: {x: 0, y: 0, z: 0}
   dir_timeout: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InkBullet : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 0.1f;
     public Rigidbody2D rb;
 
     // Start is called before the first frame update
