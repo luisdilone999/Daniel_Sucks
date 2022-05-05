@@ -6,8 +6,10 @@ public class RadarPulse : MonoBehaviour
 {
     public Transform pfRadarPing;
     public Transform pulseTransform;
+    public Transform squid;
     public float range;
     public float rangeMax = 300f;
+
 
     public List<Collider2D> alreadyPingedColliderList;
 
@@ -45,11 +47,21 @@ public class RadarPulse : MonoBehaviour
         {
             if (raycastHit2D.collider != null)
             {
-                if (!alreadyPingedColliderList.Contains(raycastHit2D.collider))
+                if (!alreadyPingedColliderList.Contains(raycastHit2D.collider) && raycastHit2D.transform != squid)
                 {
                     alreadyPingedColliderList.Add(raycastHit2D.collider);
-                    Instantiate(pfRadarPing, raycastHit2D.point, Quaternion.identity);
-                    // Debug.Log("Ping!");
+
+                    var radarPing = Instantiate(pfRadarPing, raycastHit2D.point, Quaternion.identity);
+
+                    if (raycastHit2D.collider.gameObject.layer == 10)
+                    {
+                        radarPing.GetComponent<Renderer>().material.color = Color.green;
+                    }
+                    if (raycastHit2D.collider.gameObject.layer == 11)
+                    {
+                        radarPing.GetComponent<Renderer>().material.color = Color.red;
+                    }
+               
                 }
             }
         }

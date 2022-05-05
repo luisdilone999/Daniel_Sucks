@@ -11,6 +11,7 @@ public class BlockSpawner : MonoBehaviour
     public GameObject theInk1;
     public GameObject theInk2;
     public GameObject theInk3;
+    public GameObject theSquid;
     public float timeSpawn = 2f;
     public float timeWaves = 2f;
 
@@ -23,6 +24,10 @@ public class BlockSpawner : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Period) && items != 0) { 
             if (items != 0) {
                 items -= 1;
+
+                SquidInk squid = theSquid.GetComponent<SquidInk>();
+
+                squid.Shoot();
             }
 
             if (items == 0) {
@@ -42,7 +47,7 @@ public class BlockSpawner : MonoBehaviour
             timeSpawn = Time.time + timeWaves;
 
             timeWaves -= 0.05f;
-            timeWaves = Mathf.Max(1f, timeWaves);
+            timeWaves = Mathf.Max(1.25f, timeWaves);
 
             score += 1;
 

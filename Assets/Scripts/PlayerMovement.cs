@@ -18,16 +18,23 @@ public class PlayerMovement : MonoBehaviour
     public GameObject theInk3;
 
     private Rigidbody2D rb;
-    private bool isColliding;
-    private List<Collider2D> alreadyPingedColliderList;
+    private bool hasCollided = false;
+    private float colliding = 0f;
+    private int collidingItems = 0;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update() {
-        isColliding = false;
-
+        if (hasCollided) {
+            colliding += Time.deltaTime;
+        }
+        if (colliding > 0.5f) {
+            colliding = 0f;
+            hasCollided = false;
+            collidingItems = 0;
+        }
         Vector2 newPosition = transform.position;
 
         if(Input.GetKeyDown(KeyCode.Comma)){
@@ -42,20 +49,18 @@ public class PlayerMovement : MonoBehaviour
         transform.position = newPosition;
     }
 
-    IEnumerator OnCollisionEnter2D(Collision2D collision) {
-        Destroy(collision.gameObject);
-        if (isColliding ) {
-            yield return new WaitForSeconds(0f);
-        }
+    IEnumerator OnCollisionEnter2D(Collision2D collision) {     
+        hasCollided = true;
 
-        isColliding = true;
-        
         BlockSpawner spawner = theSpawner.GetComponent<BlockSpawner>();
         var cubeRenderer = thePlayer.GetComponent<Renderer>();
 
         if (collision.gameObject.tag == "ink") {
-            if (spawner.items != 3) {
+            Destroy(collision.gameObject);
+
+            if (spawner.items != 3 && collidingItems == 0) {
                 spawner.items += 1;
+                collidingItems += 1;
             }
 
             if (spawner.items == 1) {
@@ -77,8 +82,9 @@ public class PlayerMovement : MonoBehaviour
 
         else {
             spawner.score = -1;
-            if (spawner.items != 0) {
+            if (spawner.items != 0 && collidingItems == 0) {
                 spawner.items -= 1;
+                collidingItems += 1;
             }
 
             if (spawner.items == 0) {
@@ -99,7 +105,10 @@ public class PlayerMovement : MonoBehaviour
             cubeRenderer.material.SetColor("_Color", Color.red);
             yield return new WaitForSeconds(0.5f);
             cubeRenderer.material.SetColor("_Color", Color.white);
+
+            Destroy(collision.gameObject);
         }
+        
     }
 
 }
