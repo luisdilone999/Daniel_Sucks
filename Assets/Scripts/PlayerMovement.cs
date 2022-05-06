@@ -56,9 +56,10 @@ public class PlayerMovement : MonoBehaviour
         var cubeRenderer = thePlayer.GetComponent<Renderer>();
 
         if (collision.gameObject.tag == "ink") {
-            Destroy(collision.gameObject);
+            // Destroy(collision.gameObject);
 
             if (spawner.items != 3 && collidingItems == 0) {
+                Destroy(collision.gameObject);
                 spawner.items += 1;
                 collidingItems += 1;
             }
@@ -85,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
             if (spawner.items != 0 && collidingItems == 0) {
                 spawner.items -= 1;
                 collidingItems += 1;
+                Destroy(collision.gameObject);
             }
 
             if (spawner.items == 0) {
@@ -106,7 +108,6 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             cubeRenderer.material.SetColor("_Color", Color.white);
 
-            Destroy(collision.gameObject);
         }
         
     }

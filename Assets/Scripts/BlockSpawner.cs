@@ -60,7 +60,7 @@ public class BlockSpawner : MonoBehaviour
         int randomNumber2 = Random.Range(0, spawnPoints.Length);
         if(Mathf.Abs(randomNumber1 - randomNumber2) == 1) {
             if(randomNumber1 > randomNumber2) {
-                if(randomNumber1 != 5) {
+                if(randomNumber1 != 4) {
                     randomNumber1 += 1;
                 }
                 else {
@@ -68,7 +68,7 @@ public class BlockSpawner : MonoBehaviour
                 }
             } 
             else {
-                if(randomNumber2 != 5) {
+                if(randomNumber2 != 4) {
                     randomNumber2 += 1;
                 }
                 else {
