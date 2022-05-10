@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject theInk1;
     public GameObject theInk2;
     public GameObject theInk3;
+    public AudioSource Good;
+    public AudioSource Bad;
 
     private Rigidbody2D rb;
     private bool hasCollided = false;
@@ -57,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "ink") {
             // Destroy(collision.gameObject);
-
+            Good.Play();
             if (spawner.items != 3 && collidingItems == 0) {
                 Destroy(collision.gameObject);
                 spawner.items += 1;
@@ -82,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         else {
+            Bad.Play();
             spawner.score = -1;
             if (spawner.items != 0 && collidingItems == 0) {
                 spawner.items -= 1;

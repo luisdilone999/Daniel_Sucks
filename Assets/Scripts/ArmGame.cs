@@ -9,6 +9,7 @@ public class ArmGame : MonoBehaviour
     public Transform cursor;
     public Transform target;
     public SpriteRenderer target_rend;
+    public AudioSource Propel;
 
     public float distance = 0;
     public int score = 0;
@@ -40,6 +41,7 @@ public class ArmGame : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P)){
             float speed = cursor_vel.velocity.x;
             if (Mathf.Abs(distance) < 0.5f){
+                Propel.Play();
                 if (Mathf.Abs(speed) < 9f){
                     ChangeSpeed(0.5f);
                     player.push();

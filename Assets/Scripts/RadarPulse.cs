@@ -9,7 +9,7 @@ public class RadarPulse : MonoBehaviour
     public Transform squid;
     public float range;
     public float rangeMax = 300f;
-
+    public AudioSource Pong;
 
     public List<Collider2D> alreadyPingedColliderList;
 
@@ -18,8 +18,9 @@ public class RadarPulse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Q))
+       if (Input.GetKeyDown(KeyCode.Q) && !radarActive)
         {
+            Pong.Play();
             radarActive = true;
         }
 
