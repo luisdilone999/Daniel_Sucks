@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     public Transform land;
     public Camera mini_cam;
     public Camera spec_cam;
+    public AudioSource Eat;
+    public AudioSource Water;
+    public AudioSource Music;
 
         //     points += 1;
         // Debug.Log(points);
@@ -18,6 +21,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Music.Play();
+        Water.Play();
         size = 1;
         can_land = false;
         squid = this.transform.Find("Squid").gameObject;
@@ -38,6 +43,7 @@ public class Player : MonoBehaviour
             }
         }
         else if (col.gameObject.tag == "food"){
+            Eat.Play();
             size += 1;
             Vector3 scaleChange = new Vector3(0.1f, 0.1f, 0);
             squid.transform.localScale += scaleChange;

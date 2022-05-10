@@ -14,6 +14,7 @@ public class BlockSpawner : MonoBehaviour
     public GameObject theSquid;
     public float timeSpawn = 2f;
     public float timeWaves = 2f;
+    public AudioSource Ink;
 
     public int itemWave = 5;
     public int score = -1;
@@ -23,6 +24,7 @@ public class BlockSpawner : MonoBehaviour
     void Update() {
         if(Input.GetKeyDown(KeyCode.Period) && items != 0) { 
             if (items != 0) {
+                Ink.Play();
                 items -= 1;
 
                 SquidInk squid = theSquid.GetComponent<SquidInk>();

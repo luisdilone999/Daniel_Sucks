@@ -13,7 +13,10 @@ public class WheelSteer : MonoBehaviour
     public float inertia = 1;
 
     public int rotateDir = 1;
-
+    public AudioSource LeftSpin;
+    public AudioSource RightSpin;
+    public bool firstPressR = true;
+    public bool firstPressL = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +29,22 @@ public class WheelSteer : MonoBehaviour
         
 
         if (Input.GetKey(KeyCode.X)) {
+            firstPressL = true;
+            if (firstPressR)
+            {
+                RightSpin.Play();
+                firstPressR = false;
+            }   
             rotationSpeed += 1;
 
         }
         if (Input.GetKey(KeyCode.Z)) {
+            firstPressR = true;
+            if (firstPressL)
+            {
+                LeftSpin.Play();
+                firstPressL = false;
+            }
             rotationSpeed -= 1;
         } 
 
