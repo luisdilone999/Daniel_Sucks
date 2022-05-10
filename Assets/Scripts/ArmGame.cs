@@ -8,12 +8,14 @@ public class ArmGame : MonoBehaviour
     public Vector3 center;
     public Transform cursor;
     public Transform target;
+    public SpriteRenderer target_rend;
 
     public float distance = 0;
     public int score = 0;
     private Rigidbody2D cursor_vel;
     private Rigidbody2D target_vel;
     private int dir = 1;
+ 
     
 
     // Start is called before the first frame update
@@ -22,10 +24,12 @@ public class ArmGame : MonoBehaviour
         center = this.transform.position;
         cursor = this.transform.Find("Cursor");
         target = this.transform.Find("Target");
+        target_rend = cursor.gameObject.GetComponent<SpriteRenderer>();
         cursor_vel = cursor.gameObject.GetComponent<Rigidbody2D>();
         target_vel = target.gameObject.GetComponent<Rigidbody2D>();
         cursor_vel.velocity = new Vector2(1.1f,0);
         target_vel.velocity = new Vector2(-1f,0);
+
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class ArmGame : MonoBehaviour
                     ChangeSpeed(0.5f);
                     player.push();
                     Debug.Log("HIT");
+                    // changeColor();
                 }
                 score += 1; 
             }else{
@@ -51,6 +56,11 @@ public class ArmGame : MonoBehaviour
             // Debug.Log(score);
         }
     }
+    // IEnumerator changeColor(){
+    //     target_rend.color = Color.red;
+    //     yield return new WaitForSeconds(0.25f);
+    //     target_rend.color = Color.black;
+    // }
 
     public void ChangeSpeed(float dv, bool set = false){
         if (set){
